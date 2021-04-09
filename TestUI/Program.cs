@@ -21,6 +21,7 @@ namespace TestUI
             Console.WriteLine(animal0.Name + " is owned by:");
             test.ForEach(test => Console.WriteLine(test.Name));
 
+
             var owner0 = dbContext.Owners.FirstOrDefault();
             var test2 = (from animal in dbContext.Animals
                          join animalowner in dbContext.AnimalOwners on animal.Id equals animalowner.AnimalId
@@ -30,6 +31,8 @@ namespace TestUI
             Console.WriteLine(owner0.Name + " owns:");
             test2.ForEach(test => Console.WriteLine(test.Name));
 
+
+            Console.WriteLine("Hello World!");
         }
     }
 }
