@@ -60,13 +60,13 @@ namespace TestStoring.Entities
                     .WithMany()
                     .HasForeignKey(d => d.AnimalId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Animal_Owner_Animal");
+                    .HasConstraintName("FK_Animal_Owner_Animal1");
 
                 entity.HasOne(d => d.Owner)
                     .WithMany()
                     .HasForeignKey(d => d.OwnerId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Animal_Owner_Owners");
+                    .HasConstraintName("FK_Animal_Owner_Owners1");
             });
 
             modelBuilder.Entity<Owner>(entity =>

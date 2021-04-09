@@ -14,13 +14,13 @@ namespace TestUI
         {
             PizzaBoxDBNickContext dbContext = new PizzaBoxDBNickContext();
             var animal0 = dbContext.Animals.FirstOrDefault();
-            var test = (from owner in dbContext.Owners
-                        join animalowner in dbContext.AnimalOwners on owner.Id equals animalowner.OwnerId
-                        where animalowner.AnimalId == animal0.Id
-                        select owner).ToList();
+            var animal0_owners = dbContext.AnimalOwners.Where(ao => ao.AnimalId == animal0.Id).ToList();
+            Console.WriteLine(animal0.Name + " is owned by:");
+            animal0_owners.ForEach(test => Console.WriteLine(test.Owner.Name));
+
 
             /*
-            
+
                 So this stuff should be in your mapper but I'm too lazy to make one
                 This is how you would determine which derived type an object you get
                 from the database
@@ -42,18 +42,12 @@ namespace TestUI
 
             */
 
-            Console.WriteLine(animal0.Name + " is owned by:");
-            test.ForEach(test => Console.WriteLine(test.Name));
 
 
             var owner0 = dbContext.Owners.FirstOrDefault();
-            var test2 = (from animal in dbContext.Animals
-                         join animalowner in dbContext.AnimalOwners on animal.Id equals animalowner.AnimalId
-                         where animalowner.OwnerId == owner0.Id
-                         select animal).ToList();
-
+            var owner0_animals = dbContext.AnimalOwners.Where(ao => ao.OwnerId == owner0.Id).ToList();
             Console.WriteLine(owner0.Name + " owns:");
-            test2.ForEach(test => Console.WriteLine(test.Name));
+            owner0_animals.ForEach(test => Console.WriteLine(test.Animal.Name));
 
 
             Console.WriteLine("Hello World!");
