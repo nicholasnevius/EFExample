@@ -13,13 +13,14 @@ OWNER_ID  : INT Foreign Key
 
 # Animals Table
 
-| ID | Name     |
-|----|----------|
-| 1  | Sparky   |
-| 2  | Whiskers |
+| ID | Name     | Species |
+|----|----------|---------|
+| 1  | Sparky   | 2       |
+| 2  | Not Nick | 1       |
 
-ID   : INT Primary Key
-Name : VARCHAR(50)
+ID      : INT Primary Key
+Name    : VARCHAR(50)
+SPECIES : INT
 
 
 # Owners Table

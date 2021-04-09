@@ -6,6 +6,7 @@ namespace Test.TestDomain
     {
         public List<Owner> Owners { get; set; }
         public string Name { get; set; }
+
         public abstract void MakeNoise();
 
         public AAnimal()
