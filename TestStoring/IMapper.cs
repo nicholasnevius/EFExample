@@ -1,4 +1,4 @@
-using TestStoring.Entities;
+//using TestStoring.Entities;
 using Test.TestDomain;
 
 namespace Test.TestStoring
@@ -6,7 +6,7 @@ namespace Test.TestStoring
     public interface IMapper
     {
 
-        public Animal Map(Test.TestDomain.AAnimal animal);
-        public Test.TestDomain.AAnimal Map(Animal animal);
+        //public Animal Map(Test.TestDomain.AAnimal animal);
+        //public Test.TestDomain.AAnimal Map(Animal animal);
     }
 }
